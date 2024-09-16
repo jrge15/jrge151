@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Series Numéricas</title>
+    <style>
+     body {
+  font-family: sans-serif;
+  background-image: url("imagentarea.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #e0ffff; 
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+}
+
+
+.sidebar {
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(255, 255, 255, 0.3);
+  color: #00ffff;
+  position: fixed; 
+  height: 100%;
+  overflow-y: auto; 
+}
+.sidebar h2 {
+  color: #00ffff; 
+  text-shadow: 0 0 5px #000;
+}
+
+.sidebar a {
+  display: block;
+  color: #e0ffff;
+  text-decoration: none;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sidebar a:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.content {
+  margin-left: 220px; 
+  padding: 20px;
+  width: calc(100% - 220px);
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  min-height: 100vh; 
+}
+form {
+  background-color: rgba(0, 0, 0, 0.7); 
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%; 
+  max-width: 600px; 
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%; 
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: #333;
+}
+
+input[type="submit"] {
+  background-color: #00ffff;
+  color: #333;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+fieldset {
+  background-color: rgba(0, 0, 0, 0.7); 
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%; 
+  max-width: 600px; 
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3); 
+}
+
+legend,
+#res,
+#RESF,
+#RESFIBO,
+#RESPRIMOS,
+#RESECUSEGUNDO,
+#resultado-palindromo,
+#resultado-mosca,
+#resultado-fecha,
+#resultado-diferencia,
+#resultado-array,
+#resultado-giro {
+  color: #00ffff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000; 
+}
+
+h1, h2 {
+  color: #00ffff;
+  text-shadow: 0 0 5px #000; 
+}
+
+.section {
+  margin-top: 20px;
+}
+ .menu {
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #00ffff;
+        padding: 10px;
+        box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+      }
+
+      .menu h2 {
+        margin: 0;
+        cursor: pointer;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 5px;
+        position: relative;
+      }
+
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: none; 
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: #444;
+        border-radius: 5px;
+        z-index: 1;
+      }
+
+      .menu ul li {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #444;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+
+      .menu ul li:hover {
+        background-color: #555;
+      }
+
+      .menu h2:hover + ul {
+        display: block; 
+      }
+      h2 {
+        color: #00ffff; 
+        text-shadow: 0 0 5px #000; 
+      }
+      h1 {
+        color: darksalmon; 
+        text-shadow: 0 0 5px #000; 
+      }
+      
+      input[type="text"],
+      input[type="number"] {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%; 
+        margin-bottom: 10px;
+        background-color: #fff;
+        color: #333;
+      }
+
+      input[type="submit"] {
+        background-color: #00ffff;
+        color: #333;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%; 
+      }
+
+      fieldset {
+        background-color: rgba(0, 0, 0, 0.7); 
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        width: 100%; 
+        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3); 
+      }
+
+      legend,
+      #res,
+      #RESF {
+        color: #00ffff;
+        font-weight: bold;
+        text-shadow: 0 0 5px #000; 
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- CONTENIDO DEL CUERPOOO -->
+
+
+    <body>
+      <div class="sidebar">
+        <h2>Menú</h2>
+        <a style="color: darksalmon;" href="#funciones-matematicas">Funciones Matemáticas</a>
+        <ul>
+          <a href="#factorial">1. Factorial</a>
+          <a href="#fibonacci">2. Fibonacci</a>
+          <a href="#primos">3. N Primos</a>
+          <a href="#segundogrado">4. Ecuación de Segundo Grado</a>
+        </ul>
+        <a style="color: darksalmon;" href="#funciones-cadenas">Funciones de Cadenas</a>
+        <ul>
+          <a href="#palindromo">1. Verificar Palíndromo</a>
+          <a href="#mosca">2. Generar MOSCA</a>
+        </ul>
+        <a style="color: darksalmon;" href="#funciones-fecha-hora">Funciones de Fecha y Hora</a>
+        <ul>
+          <a href="#actual">1. Mostrar Fecha Actual</a>
+          <a href="#diasdiferencia">2. Diferencia de Días</a>
+        </ul>
+        <a style="color: darksalmon;" href="#funciones-arrays">Funciones con Arrays</a>
+        <ul>
+          <a href="#aumentar-datos">1. Aumentar Datos a un Vector</a>
+          <a href="#girar-array">2. Girar Array</a>
+        </ul>
+      </div>
+  
+      <div class="content">
+        <h1 id="funciones-matematicas">FUNCIONES MATEMÁTICAS</h1>
+                <!-- FACTORIAL -->
+        <h2 id="factorial">1. Factorial</h2>
+        <form action="#" onsubmit="calcularFactorial(); return false;">
+          <input
+            type="number"
+            id="factorial-input"
+            placeholder="Ingresa un número"
+          />
+          <input type="submit" value="Calcular Factorial" />
+        </form>
+        <fieldset>
+          <legend>RESULTADO</legend>
+          <h2 id="RESF">....</h2>
+        </fieldset>
+        <!-- FIBONACCI -->
+        <h2 id="fibonacci">2. FIBONACCI</h2>
+        <form action="#" onsubmit="calcularFibonacci(); return false;">
+          <input
+            type="number"
+            id="fibonacci-input"
+            placeholder="Ingresa un número"
+          />
+          <input type="submit" value="Calcular FIBONACCI" />
+        </form>
+        <fieldset>
+          <legend>RESULTADO</legend>
+          <h2 id="RESFIBO">....</h2>
+        </fieldset>
+  <!--N PRIMOS-->
+        <h2 id="primos">3. N PRIMOS</h2>
+        <form action="#" onsubmit="listarPrimos(); return false;">
+          <input
+            type="number"
+            id="primos-input"
+            placeholder="Ingresa un número"
+          />
+          <input type="submit" value="Calcular PRIMOS" />
+        </form>
+        <fieldset>
+          <legend>RESULTADO</legend>
+          <h2 id="RESPRIMOS">....</h2>
+        </fieldset>
+  
+        <!-- ECUACIÓN DE SEGUNDO GRADO -->
+        <h2 id="segundogrado">4. ECUACIÓN DE SEGUNDO GRADO</h2>
+        <form onsubmit="ecsegundogrado(); return false;">
+          <input
+            type="number"
+            id="a"
+            placeholder="Ingresa el valor de a"
+            required
+          />
+          <input
+            type="number"
+            id="b"
+            placeholder="Ingresa el valor de b"
+            required
+          />
+          <input
+            type="number"
+            id="c"
+            placeholder="Ingresa el valor de c"
+            required
+          />
+          <input type="submit" value="Calcular valores de x1 y x2" />
+        </form>
+  
+        <fieldset>
+          <legend>Resultado</legend>
+          <h2 id="RESECUSEGUNDO">....</h2>
+        </fieldset>
+        <h1 id="funciones-cadenas">FUNCIONES DE CADENAS</h1>
+  
+        <!-- Verificar Palíndromo -->
+        <h2 id="palindromo">1. Verificar Palíndromo</h2>
+        <form action="#" onsubmit="verificarPalindromo(); return false;">
+          <input
+            type="text"
+            id="palindromo-input"
+            placeholder="Ingresa una palabra o frase"
+          />
+          <input type="submit" value="Verificar" />
+        </form>
+        <fieldset>
+          <legend>RESULTADO</legend>
+          <h2 id="resultado-palindromo">....</h2>
+        </fieldset>
+  
+        <!-- Generar MOSCA -->
+        <h2 id="mosca">2. Generar MOSCA</h2>
+        <form action="#" onsubmit="generarMosca(); return false;">
+          <input
+            type="text"
+            id="mosca-input"
+            placeholder="Ingresa nombre completo"
+          />
+          <input type="submit" value="Generar MOSCA" />
+        </form>
+        <fieldset>
+          <legend>RESULTADO</legend>
+          <h2 id="resultado-mosca">....</h2>
+        </fieldset>
+        <h1 id="funciones-fecha-hora">FUNCIONES DE FECHA Y HORA</h1>
+
+      <!-- Mostrar Fecha Actual -->
+    <h2 id="actual">1. Mostrar Fecha Actual</h2>
+    <form action="#" onsubmit="mostrarFechaActual(); return false;">
+      <input type="submit" value="Mostrar Fecha Actual">
+    </form>
+    <fieldset>
+      <legend>RESULTADO</legend>
+      <h2 id="resultado-fecha">....</h2>
+    </fieldset>
+
+    <!-- Diferencia de Días -->
+    <h2 id="diasdiferencia">2. Diferencia de Días</h2>
+    <form action="#" onsubmit="calcularDiferenciaDias(); return false;">
+      <input type="text" id="fecha-input" placeholder="dd/mm/aaaa">
+      <input type="submit" value="Calcular Diferencia">
+    </form>
+    <fieldset>
+      <legend>RESULTADO</legend>
+      <h2 id="resultado-diferencia">....</h2>
+    </fieldset>
+    <h1 id="funciones-arrays">FUNCIONES CON ARRAYS</h1>
+     <!-- Adicionar a Array -->
+     <h2 id="aumentar-datos">1. Aumentar Datos a un Vector</h2>
+     <form action="#" onsubmit="adicionarElemento(); return false;">
+       <input type="text" id="input-elemento" placeholder="Ingresa un texto">
+       <input type="submit" value="Adicionar">
+     </form>
+     <fieldset>
+       <legend>RESULTADO</legend>
+       <h2 id="resultado-array">[]</h2>
+     </fieldset>
+ 
+     <!-- Girar Array -->
+     <h2 id="girar-array">2. Girar Array</h2>
+     <button onclick="girarDerecha()">Girar a la Derecha</button>
+     <button onclick="girarIzquierda()">Girar a la Izquierda</button>
+     <fieldset>
+       <legend>RESULTADO</legend>
+       <h2 id="resultado-giro">[]</h2>
+     </fieldset>
+  </div>
+    </div>
+
+    <!--EJERCICIOS DE LA PRÁCTICA -->
+    <script>
+
+
+      function calcularFactorial() {
+        let n = parseInt(document.getElementById("factorial-input").value);
+        let result = 1;
+        for (let i = 2; i <= n; i++) result *= i;
+        document.getElementById("RESF").textContent =
+          "Factorial de " + n + " es: " + result;
+      }
+      function calcularFibonacci() {
+        let n = parseInt(document.getElementById("fibonacci-input").value);
+        let fib = [0, 1];
+        for (let i = 2; i < n; i++) fib[i] = fib[i - 1] + fib[i - 2];
+        document.getElementById("RESFIBO").textContent =
+          "Fibonacci hasta " + n + " es: " + fib.slice(0, n).join(", ");
+      }
+      function esPrimo(num) {
+        if (num < 2) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+      function listarPrimos() {
+        let n = parseInt(document.getElementById("primos-input").value);
+        let primos = [];
+        for (let i = 2; primos.length < n; i++) if (esPrimo(i)) primos.push(i);
+        document.getElementById("RESPRIMOS").textContent =
+          "Primos: " + primos.join(", ");
+      }
+      function ecsegundogrado() {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        let c = parseFloat(document.getElementById("c").value);
+
+        // Calcular el discriminante
+        let discriminante = b * b - 4 * a * c;
+
+        if (discriminante > 0) {
+          // Dos soluciones reales
+          let x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+          let x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+          document.getElementById(
+            "RESECUSEGUNDO"
+          ).textContent = `Las soluciones son x1 = ${x1} y x2 = ${x2}`;
+        } else if (discriminante === 0) {
+          // Una solución real
+          let x = -b / (2 * a);
+          document.getElementById(
+            "RESECUSEGUNDO"
+          ).textContent = `La única solución es x = ${x}`;
+        } else {
+          // Soluciones complejas
+          let real = -b / (2 * a);
+          let imaginario = Math.sqrt(-discriminante) / (2 * a);
+          document.getElementById(
+            "RESECUSEGUNDO"
+          ).textContent = `Las soluciones son x1 = ${real} + ${imaginario}i y x2 = ${real} - ${imaginario}i`;
+        }
+      }
+
+      function verificarPalindromo() {
+        const input = document.getElementById("palindromo-input").value;
+        const sanitizedInput = input.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+        const reversedInput = sanitizedInput.split("").reverse().join("");
+        const result =
+          sanitizedInput === reversedInput
+            ? "Es un palíndromo"
+            : "No es un palíndromo";
+        document.getElementById("resultado-palindromo").textContent = result;
+      }
+
+      function generarMosca() {
+        const input = document.getElementById("mosca-input").value;
+        const initials = input
+          .split(" ")
+          .map((word) => word.charAt(0).toUpperCase())
+          .join("");
+        document.getElementById("resultado-mosca").textContent = initials;
+      }
+      function mostrarFechaActual() {
+      // Opciones para formatear la fecha
+      const opciones = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+      const fechaActual = new Date();
+      const fechaFormateada = fechaActual.toLocaleDateString('es-ES', opciones);
+      // Ciudad para el ejemplo
+      const ciudad = 'La Paz';
+      document.getElementById('resultado-fecha').textContent = `${ciudad}, ${fechaFormateada}`;
+    }
+
+    function calcularDiferenciaDias() {
+      const fechaInput = document.getElementById('fecha-input').value;
+      const [dia, mes, anio] = fechaInput.split('/').map(Number);
+      const fechaIntroducida = new Date(anio, mes - 1, dia); // Meses en JS son base 0
+      const fechaActual = new Date();
+      
+      // Calcular la diferencia en milisegundos
+      const diferencia = fechaIntroducida - fechaActual;
+      const diasDiferencia = Math.round(diferencia / (1000 * 60 * 60 * 24));
+      
+      // Mostrar el resultado
+      if (diasDiferencia > 0) {
+        document.getElementById('resultado-diferencia').textContent = `Faltan ${diasDiferencia} días`;
+      } else if (diasDiferencia < 0) {
+        document.getElementById('resultado-diferencia').textContent = `Han pasado ${-diasDiferencia} días`;
+      } else {
+        document.getElementById('resultado-diferencia').textContent = `La fecha es hoy`;
+      }
+    }
+    let array = [];
+
+function adicionarElemento() {
+  const elemento = document.getElementById('input-elemento').value;
+  if (elemento) {
+    array.push(elemento);
+    document.getElementById('resultado-array').textContent = JSON.stringify(array);
+    document.getElementById('input-elemento').value = ''; // Limpiar el input
+  }
+}
+
+function girarDerecha() {
+  if (array.length > 0) {
+    const ultimoElemento = array.pop(); // Eliminar el último elemento
+    array.unshift(ultimoElemento); // Insertar al inicio
+    document.getElementById('resultado-giro').textContent = JSON.stringify(array);
+  }
+}
+
+function girarIzquierda() {
+  if (array.length > 0) {
+    const primerElemento = array.shift(); // Eliminar el primer elemento
+    array.push(primerElemento); // Insertar al final
+    document.getElementById('resultado-giro').textContent = JSON.stringify(array);
+  }
+}
+    </script>
+  </body>
+</html>
