@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Series Numéricas</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-image: url("cat.jpg"); /* Replace with your image path */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; /* Prevent image tiling */
+        color: #e0ffff; /* Light cyan color for text */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      h2 {
+        color: #00ffff; /* Bright cyan color for headings */
+        text-shadow: 0 0 5px #000; /* Add a subtle text shadow for better contrast */
+      }
+
+      form {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* Darker background with opacity */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3); /* White shadow for contrast */
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 200px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        color: #333;
+      }
+
+      input[type="submit"] {
+        background-color: #00ffff;
+        color: #333;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      fieldset {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* Darker background with opacity */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3); /* White shadow for contrast */
+        margin-top: 20px;
+        
+      }
+
+      legend {
+        color: #00ffff;
+        font-weight: bold;
+      }
+
+      #res {
+        color: #00ffff;
+        text-shadow: 0 0 5px #000; /* Add a subtle text shadow for better contrast */
+      }
+    </style>
+  </head>
+
+  <body background="cat.jpg">
+    <h2>REPETITIVAS</h2>
+    <form action="#" onsubmit="serie(); return false;">
+      <input type="text" id="n" placeholder="Ingresa un número" />
+      <input type="submit" value="GENERAR" />
+    </form>
+
+    <fieldset>
+      <legend>RESULTADO</legend>
+      <h2 id="res">....</h2>
+    </fieldset>
+    <!---->
+  <form action="#" >
+        A: <input type="text" id="a">
+        B: <input type="text" id="b"> <br><br>
+<input type="button" value="+" onclick="operar('+');">
+<input type="button" value="-" onclick="operar('-');">
+<input type="button" value="*" onclick="operar('*');">
+<input type="button" value="/" onclick="operar('/');"> 
+<br><br>
+<input type="button" value="potencia" onclick="operar('/');"> 
+
+           </form>
+
+    <fieldset >RESULTADO</legend>
+        <h1 id="res">...</h2>
+
+    </fieldset>
+
+<script>
+function operar(operador) {
+    var a=parseInt(document.getElementById('a').value);
+    var b=parseInt(document.getElementById('b').value);
+    var c;
+switch (operador) {
+    case '*':c=a*b;break;
+    case '/':c=a/b;break;
+    case '+':c=a+b;break;
+    case '-':c=a-b;break;
+    case 'potencia':c=Math.pow(a,b);break;
+    default: c='error';    }
+
+
+    document.getElementById('res').innerHTML=c;
+}
+
+
+
+</script>
+    <script>
+      function serie() {
+        n = document.getElementById("n").value;
+        res = "";
+        for (i = 1; i <= n; i++) {
+          res += i + ",";
+        }
+        document.getElementById("res").innerHTML = res;
+      }
+      //n=prompt("Introduzca un número","");
+      //res='';
+      //for (i=1; i<=n ;i++){
+      // res+=i+",";
+      //}
+      //document.write("<h1>("+n+")"+res+"</h1>");   //document.write("<h1>("+edad+")"+res+"</h1>");
+    </script>
+  </body>
+</html>
