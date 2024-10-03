@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>JAVA SCRIPT</title>
+<style>
+body {
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+background-color: cornflowerblue;
+font-size: 24px;
+}
+select {
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+background-color:khaki;
+font-size: 24px;
+}
+
+</style>
+
+</head>
+<body>
+    <h2>INPUT SELECT</h2><br><br><br>
+<form action="">
+    <input type="number" id="dias" placeholder="Inserte el número de días de viaje">
+    
+
+</form>
+    <form action="#" >
+
+<select name="" id="opcionde">
+    <option value="0"> La Paz</option>
+    <option value="100"> Cochabamba</option>
+    <option value="200"> Santa Cruz</option>
+</select>
+<input type="button" value="Ver Resultados" onclick="mostrar();"><!--no tieen ningún argumento de entrada, sólo es para recibir los valores de la opción-->
+
+    </form>
+
+    <fieldset >RESULTADO</legend>
+        <h1 id="res">...</h2>
+
+    </fieldset>
+
+    <!--CHECKBOX-->
+    <form action="#">
+        <label for=""><input type="checkbox" id="op1">CON HOSPEDAJE</label>
+        <input type="button" value="CONSULTAR" onclick="consultar()" />
+      
+      </form>
+<script>
+//function mostrar() {
+  //  var opcion=document.getElementById('opcion');
+  //  var texto;
+   // texto="El numero de opciones del select: "+opcion.length;
+    
+   // var indice=opcion.selectedIndex;
+   // texto +="<br> Índice de la opción escogida: "+indice;
+
+  //  var valor=opcion.options[indice].value;
+   // texto +="<br> Valor de la opción escogida: "+valor;
+
+   // var textoescogido=opcion.options[indice].text;
+   // texto +="<br> Texto de la opción escogida: "+textoescogido;
+   function operar(operador) {
+    var departamento=opcionde.options[indice].value;
+    var diasviaje=dias;
+    var hospedaje=50*dias;
+    var costodestino=departamento;
+    if (consultar==true) {
+        var costodias=diasviaje*100;
+        
+    }
+    var res=departamento+costodias+hospedaje;
+   // var b=parseInt(document.getElementById('b').value);
+    //var c;
+    
+
+    document.getElementById('res').innerHTML=res;
+}
+
+
+    
+
+    //var indice=document.getElementById('opcion').selectedIndex;//selectedIndex cuenta desde el cero
+    //para agarrar su valor .value//text
+//res=document.getElementById('opcion').options[indice].text
+
+   
+//}
+
+
+
+</script>
+
+</body>
+</html>
