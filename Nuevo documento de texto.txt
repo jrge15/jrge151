@@ -1,0 +1,154 @@
+package matrices;
+
+import java.util.Scanner;
+
+public class sumadiagonalprincipal {
+    public static void llenaM(int N, int M, int X[][]) {
+        Scanner LEE = new Scanner(System.in);
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.println("Ingrese elemento " + i + "," + j + ": ");
+                X[i][j] = LEE.nextInt();
+            }
+        }
+    }
+
+    public static void MuestraM(int N, int M, int X[][]) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.print(X[i][j] + " | ");
+            }
+            System.out.println(); // Salto de línea al cambiar de fila
+        }
+    }
+public static int SUMAP(int a[][],int N){
+    int sp=0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (i==j) {
+                sp=sp+a[i][j];
+                //s+=a[i][j]
+                
+            }
+            
+        }
+        
+    }
+    return sp;
+}
+public static int MULTIS(int a[][],int N){
+    int sp=1;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (i+j==N-1) {
+                sp=sp*a[i][j];
+                //s+=a[i][j]
+                
+            }
+            
+        }
+        
+    }
+    return sp;
+}
+    public static void Transpuesta(int N, int M, int A[][], int B[][]) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                B[j][i] = A[i][j]; // Asignar la transpuesta
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int F, C,s1,s2;
+        Scanner LEE = new Scanner(System.in);
+        System.out.print("Cantidad de filas: ");
+        F = LEE.nextInt();
+       // System.out.print("Cantidad de columnas: ");
+        C = LEE.nextInt();
+
+        int a[][] = new int[F][F];
+       // int b[][] = new int[C][F]; // Matriz para la transpuesta
+
+        llenaM(F, F, a); // Llenar matriz a
+        System.out.println("Matriz original:");
+        MuestraM(F, F, a); // Mostrar matriz a
+
+       // Transpuesta(F, C, a, b); // Calcular la transpuesta
+s1=SUMAP(a,F);
+        System.out.println("suma de la diagonal principal ES: "+s1);
+        s2=MULTIS(a,F);
+         System.out.println("PRODUCTO de la diagonal principal ES: "+s2);
+        //System.out.println("Matriz transpuesta:");
+       // MuestraM(C, F, b); // Mostrar matriz transpuesta
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package matrices;
+
+import java.util.Scanner;
+
+public class transpuesta {
+    public static void llenaM(int N, int M, int X[][]) {
+        Scanner LEE = new Scanner(System.in);
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.println("Ingrese elemento " + i + "," + j + ": ");
+                X[i][j] = LEE.nextInt();
+            }
+        }
+    }
+
+    public static void MuestraM(int N, int M, int X[][]) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.print(X[i][j] + " | ");
+            }
+            System.out.println(); // Salto de línea al cambiar de fila
+        }
+    }
+
+    public static void Transpuesta(int N, int M, int A[][], int B[][]) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                B[j][i] = A[i][j]; // Asignar la transpuesta
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int F, C;
+        Scanner LEE = new Scanner(System.in);
+        System.out.print("Cantidad de filas: ");
+        F = LEE.nextInt();
+        System.out.print("Cantidad de columnas: ");
+        C = LEE.nextInt();
+
+        int a[][] = new int[F][C];
+        int b[][] = new int[C][F]; // Matriz para la transpuesta
+
+        llenaM(F, C, a); // Llenar matriz a
+        System.out.println("Matriz original:");
+        MuestraM(F, C, a); // Mostrar matriz a
+
+        Transpuesta(F, C, a, b); // Calcular la transpuesta
+
+        System.out.println("Matriz transpuesta:");
+        MuestraM(C, F, b); // Mostrar matriz transpuesta
+    }
+}

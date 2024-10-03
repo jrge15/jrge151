@@ -1,0 +1,77 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package matrices;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Sistemas
+ */
+public class sumamatrices {
+    public static int sumamatriz(int X[][],int N, int M){
+        int S=0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                S+=X[i][j];
+            }
+            
+        }
+        return S;
+    }
+    
+    public static void llenaM(int N,int M,int X[][]){
+        Scanner LEE=new Scanner(System.in);
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.println("Ingrese elemento"+i+","+j);
+                X[i][j]=LEE.nextInt();
+            }
+        }
+        
+    }
+    public static void MuestraM(int N, int M, int X[][]){
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.print(X[i][j]+" |");
+            }
+            System.out.println("");//cuando cambie de fila que haga un salto de línea
+        }
+    }
+    public static int MayorM(int X[][],int N,int M){
+        int may=X[0][0];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                if (X[i][j]>may) {
+                    may=X[i][j];
+                    
+                }
+                
+            }
+            
+        }
+        return may;
+        
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int F,C,S,mayor,menor;
+         Scanner LEE=new Scanner(System.in);
+         System.out.println("Cantidad de filas: ");
+         F=LEE.nextInt();
+         System.out.println("Cantidad de columnas: ");
+         C=LEE.nextInt();
+         int a[][]=new int[F][C];
+         llenaM(F,C,a);
+         MuestraM(F,C,a);
+         S=sumamatriz(a,F,C);
+         System.out.println("La suma es: "+S);
+         mayor=MayorM(a,F,C);
+                System.out.println("El mayor es: "+mayor);
+    }
+    
+}
