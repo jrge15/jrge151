@@ -1,0 +1,131 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package matrices;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Sistemas
+ */
+public class NewMain {
+    public static void MuestraM(int N, int M, int X[][]) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.print(X[i][j] + " | ");
+            }
+            System.out.println(); // Salto de línea al cambiar de fila
+        }
+    }
+
+    public static void genera1(int F, int M[][]){
+        for (int i = 0; i < F; i++) {
+            for (int j = 0; j < F; j++) {
+                if (i==j) {
+                    M[i][j]=1;
+                    
+                }
+                
+            }
+            
+        }
+    }
+        public static void genera2(int F, int M[][]){
+        for (int i = 0; i < F; i++) {
+            for (int j = 0; j < F; j++) {
+                if (i+j==F-1) {
+                    M[i][j]=1;
+                    
+                }
+                
+            }
+            
+        }
+    }
+        
+        //TRIÁNGULO IZQUIERDO
+        public static void genera3(int F, int M[][]){
+        for (int i = 0; i < F; i++) {
+            for (int j = 0; j < F; j++) {
+                if (i+j<F-1) {
+                    M[i][j]=1;
+                    
+                }
+                
+            }
+            
+        }
+    }
+        //triang
+        public static void genera4(int F, int M[][]){
+        for (int i = 0; i < F; i++) {
+            for (int j = 0; j < F; j++) {
+                if (i+j>F-1) {
+                    M[i][j]=1;
+                    
+                }
+                
+            }
+            
+        }
+    }
+        //TRIANGULAR SUPERIOR DERECHA
+        public static void genera5(int F, int M[][]){
+        for (int i = 0; i < F; i++) {
+            for (int j = 0; j < F; j++) {
+                if (j>i) {
+                    M[i][j]=1;
+                    
+                }
+                
+            }
+            
+        }
+    }
+                public static void genera6(int F, int M[][]){
+        for (int i = 0; i < F; i++) {
+            for (int j = 0; j < F; j++) {
+                if (i>j) {
+                    M[i][j]=1;
+                    
+                }
+                
+            }
+            
+        }
+    }
+                                public static void genera7(int F, int M[][]){
+                                    int c=1;
+        for (int i = 0; i < F; i++) {
+            for (int j = 0; j < F; j++) {
+                if (i>j) {
+                    M[i][j]=c;
+                    c++;
+                    
+                }
+                
+            }
+            
+        }
+    }
+        
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+int n;
+Scanner lee=new Scanner(System.in);
+        System.out.println("Dimensión de la matriz: ");
+        n=lee.nextInt();
+        int A[][]=new int [n][n];
+        //genera1(n,A);
+        //genera2(n,A);
+        //genera3(n,A);
+        genera7(n,A);
+        
+        MuestraM(n,n,A);
+        // TODO code application logic here
+    }
+    
+}
